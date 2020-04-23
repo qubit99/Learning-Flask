@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+
+{% block content %}
+    <h1>Index</h1>
+    {% for mess in get_flashed_messages() %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>{{mess}}</strong>
+            <button type="button" class="fadeclose" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {% endfor %}
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        {{ form.breed.label }} {{ form.breed }}
+        <br>
+        {{ form.neutered.label }} {{ form.neutered }}
+        <br>
+        {{ form.mood.label }} {{ form.mood }}
+        <br>
+        {{ form.food_choice.label }} {{ form.food_choice }}
+        <br>
+        {{ form.feedback.label }} {{ form.feedback }}
+
+        {{ form.submit() }}
+    </form>
+    
+{% endblock %}
